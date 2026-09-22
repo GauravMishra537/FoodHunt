@@ -1,0 +1,30 @@
+{
+  "name": "foodhunt",
+  "version": "1.0.0",
+  "description": "Making frontend using react",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GauravMishra537/FoodHunt.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Gaurav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GauravMishra537/FoodHunt/issues"
+  },
+  "homepage": "https://github.com/GauravMishra537/FoodHunt#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}
