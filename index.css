@@ -94,3 +94,23 @@ html, body {
        word-wrap: break-word; 
     overflow-wrap: break-word;
 }
+.filter-btn {
+    margin: 10px;
+    padding: 12px 24px;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.filter-btn:hover {
+    transform: scale(0.98);
+    background-color: #f0f0f0;
+    border: 1px solid #000000;
+}
+
+.filter-btn:active {
+    transform: scale(0.95);
+}
