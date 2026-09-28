@@ -25,6 +25,12 @@
   },
   "dependencies": {
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
-  }
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^6.30.6"
+  },
+  
+    "@parcel/resolver-default": {
+  "packageExports": true
+}
+  
 }
