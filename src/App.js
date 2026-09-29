@@ -5,14 +5,14 @@ import About from "./componenets/About";
 import Contact from "./componenets/Contact";
 import Body from "./componenets/Body";
 import Error from "./componenets/Error";
-import { createBrowserRouter , RouterProvider} from "react-router-dom";
+import { createBrowserRouter , Outlet, RouterProvider} from "react-router-dom";
+import RestaurantMenu from "./componenets/RestaurantMenu";
 
 const AppLayout= ()=>{
     return(
         <div className="app">
             <Header />
-            <Body />
-
+            <Outlet />
         </div>
     );
 };
@@ -21,16 +21,26 @@ const appRouter=createBrowserRouter([
     {
         path:"/",
         element:<AppLayout />,
+           children: [
+        { 
+            path: "", 
+            element: <Body /> 
+        },
+        { 
+            path: "about",
+            element: <About />
+        },
+        { 
+            path: "contact",
+            element: <Contact /> 
+        },
+        {
+            path:"/restaurants/:resId",
+            element:<RestaurantMenu />
+        }
+        ],
         errorElement: <Error />,
-    },
-    {
-        path:"/about",
-        element:<About />
-    },
-    {
-        path: "/contact",
-        element: <Contact />
-    },
+    }
 ]);
 
 const root=ReactDom.createRoot(document.getElementById("root"));

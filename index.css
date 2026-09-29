@@ -157,3 +157,107 @@ html, body {
     box-sizing: border-box;  
     cursor: pointer;
 }
+/* Target all React Router Links/anchor tags wrapping your restaurant cards */
+a, .link {
+    text-decoration: none; /* Removes any default underlines */
+    color: inherit;        /* Forces the text to keep its original color (black/gray) */
+}
+
+/* Ensures the text stays the same color even after being clicked */
+a:visited {
+    color: inherit;
+}
+/* here styling of inner cards */
+.menu {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.menu h1 {
+    margin-bottom: 5px;
+}
+
+.menu h3 {
+    color: #555;
+    font-weight: normal;
+    margin: 2px 0;
+}
+
+.veg-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    border-radius: 22px;
+    transition: 0.3s;
+}
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+input:checked + .slider::before {
+    transform: translateX(18px);
+}
+
+.category {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #fff;
+}
+.category-header:hover {
+    background: #fafafa;
+}
+.category ul {
+    list-style: none;
+    padding: 0 18px 15px;
+    margin: 0;
+}
+.category ul li {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
