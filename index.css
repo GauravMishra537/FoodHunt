@@ -261,3 +261,26 @@ input:checked + .slider::before {
     padding: 10px 0;
     border-top: 1px solid #eee;
 }
+.user-card {
+  background-color: #f0f0f0;
+  width: 220px;
+  height: auto;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.user-card:hover {
+    cursor: pointer;
+    border: 1px solid #000000;
+    background-color: #e8e8e8;
+    transform: scale(0.98);
+}
+.about-card{
+  display: flex;       /* Aligns the actual cards horizontally */
+  flex-wrap: wrap;     /* Allows cards to wrap if screen width shrinks */
+  gap: 20px;           /* Puts space between the two profile cards */
+  padding: 20px 0;     /* Breathable spacing above and below the row */
+}
