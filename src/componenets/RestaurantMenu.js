@@ -14,9 +14,12 @@ const RestaurantMenu = () => {
 
     const fetchMenu = async () => {
         const data = await fetch(
-            `https://namastedev.com/api/v1/listRestaurantMenu/${resId}`
+            "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.02760&lng=72.58710&restaurantId=" +
+                resId +
+                "&catalog_qa=undefined&submitAction=ENTER"
         );
         const json = await data.json();
+        console.log(json);
         setResInfo(json.data);
     };
 
@@ -27,6 +30,16 @@ const RestaurantMenu = () => {
 
     const menuCategories =
         resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+
+    // helper: get a displayable price even for items that use variantsV2 instead of flat price
+    const getItemPrice = (info) => {
+        if (info.price) return info.price / 100;
+        if (info.defaultPrice) return info.defaultPrice / 100;
+        if (info.variantsV2?.pricingModels?.[0]?.price) {
+            return info.variantsV2.pricingModels[0].price / 100;
+        }
+        return null;
+    };
 
     return (
         <div className="menu">
@@ -51,12 +64,7 @@ const RestaurantMenu = () => {
                 if (!items) return null;
 
                 const filteredItems = vegOnly
-                    ? items.filter(
-                          (item) =>
-                              !item.card.info.name.toLowerCase().includes("chicken") &&
-                              !item.card.info.name.toLowerCase().includes("bbq")&&
-                               !item.card.info.name.toLowerCase().includes("beef") 
-                      )
+                    ? items.filter((item) => item.card.info.isVeg === 1)
                     : items;
 
                 if (filteredItems.length === 0) return null;
@@ -78,12 +86,15 @@ const RestaurantMenu = () => {
                         </div>
                         {isOpen && (
                             <ul>
-                                {filteredItems.map((item) => (
-                                    <li key={item.card.info.id}>
-                                        {item.card.info.name} — ₹
-                                        {item.card.info.price / 100}
-                                    </li>
-                                ))}
+                                {filteredItems.map((item) => {
+                                    const price = getItemPrice(item.card.info);
+                                    return (
+                                        <li key={item.card.info.id}>
+                                            {item.card.info.name}
+                                            {price !== null ? ` — ₹${price}` : ""}
+                                        </li>
+                                    );
+                                })}
                             </ul>
                         )}
                     </div>

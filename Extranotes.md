@@ -11,3 +11,5 @@ resid of dummy restaurants
 swiggy internal menu link="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.02760&lng=72.58710&restaurantId=37578&catalog_qa=undefined&submitAction=ENTER"
 
 swiggy home link="https://www.swiggy.com/dapi/restaurants/search/v3?lat=23.02760&lng=72.58710&str=kfc&trackingId=c22c0812-5126-9ecc-9f7d-d005be1190e5&submitAction=ENTER&queryUniqueId=549aefc1-caca-bd4c-f2a3-64b492fc6f60"
+ namaste home link="https://namastedev.com/api/v1/listRestaurants"
+  namaste internal link=`https://namastedev.com/api/v1/listRestaurantMenu/${resId}`

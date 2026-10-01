@@ -13,13 +13,12 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch(
-            "https://namastedev.com/api/v1/listRestaurants"
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/search/v3?lat=23.02760&lng=72.58710&str=kfc&trackingId=c22c0812-5126-9ecc-9f7d-d005be1190e5&submitAction=ENTER&queryUniqueId=549aefc1-caca-bd4c-f2a3-64b492fc6f60"  
         );
         const json = await data.json();
 
         const restaurants =
-            json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+            json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards[1]?.card?.card?.restaurants
 
         setListOfRestaurants(restaurants);
         setFilteredRestaurant(restaurants);
